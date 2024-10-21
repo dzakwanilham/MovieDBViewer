@@ -53,8 +53,15 @@ class HomeViewController: UIViewController {
 		let vm = MovieListViewModel()
 		let vc = MovieListViewController(vm)
 		
+		vc.didSelectMovies = { [weak self] movie in
+			guard let self else { return }
+			let detailVC = DetailMovieViewController()
+			detailVC.movie = movie
+			
+			self.navigationController?.pushViewController(detailVC, animated: true)
+		}
+		
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 
-	
 }

@@ -27,129 +27,44 @@ struct Dates: Codable {
 
 public struct Movie: Identifiable, Codable, Equatable, Hashable, Sendable {
 
-    ///
-    /// Movie identifier.
-    ///
     public let id: Int
 
-    ///
-    /// Movie title.
-    ///
     public let title: String
 
-    ///
-    /// Movie tagline.
-    ///
     public let tagline: String?
 
-    ///
-    /// Original movie title.
-    ///
     public let originalTitle: String?
 
-    ///
-    /// Original language of the movie.
-    ///
     public let originalLanguage: String?
 
-    ///
-    /// Movie overview.
-    ///
     public let overview: String?
 
-    ///
-    /// Movie runtime, in minutes.
-    ///
     public let runtime: Int?
 
-    ///
-    /// Movie release date.
-    ///
     public let releaseDate: Date?
 
-    ///
-    /// Movie poster path.
-    ///
-    /// To generate a full URL see <doc:/TMDb/GeneratingImageURLs>.
-    ///
     public let posterPath: URL?
 
-    ///
-    /// Movie poster backdrop path.
-    ///
-    /// To generate a full URL see <doc:/TMDb/GeneratingImageURLs>.
-    ///
     public let backdropPath: URL?
 
-    ///
-    /// Movie budget, in US dollars.
-    ///
     public let budget: Double?
 
-    ///
-    /// Movie revenue, in US dollars.
-    ///
     public let revenue: Double?
 
-    ///
-    /// Movie's web site URL.
-    ///
     public let homepageURL: URL?
 
-    ///
-    /// IMDd identifier.
-    ///
     public let imdbID: String?
 
-    ///
-    /// Current popularity.
-    ///
     public let popularity: Double?
 
-    ///
-    /// Average vote score.
-    ///
     public let voteAverage: Double?
 
-    ///
-    /// Number of votes.
-    ///
     public let voteCount: Int?
 
-    ///
-    /// Has video.
-    ///
     public let hasVideo: Bool?
 
-    ///
-    /// Is the movie only suitable for adults.
-    ///
     public let isAdultOnly: Bool?
 
-    ///
-    /// Creates a movie object.
-    ///
-    /// - Parameters:
-    ///    - id: Movie identifier.
-    ///    - title: Movie title.
-    ///    - tagline: Movie tagline.
-    ///    - originalTitle: Original movie title.
-    ///    - originalLanguage: Original language of the movie.
-    ///    - overview: Movie overview.
-    ///    - runtime: Movie runtime, in minutes.
-    ///    - releaseDate: Movie release date.
-    ///    - posterPath: Movie poster path.
-    ///    - backdropPath: Movie poster backdrop path.
-    ///    - budget: Movie budget, in US dollars.
-    ///    - revenue: Movie revenue, in US dollars.
-    ///    - homepageURL: Movie's web site URL.
-    ///    - imdbID: IMDd identifier.
-    ///    - popularity: Current popularity.
-    ///    - voteAverage: Average vote score.
-    ///    - voteCount: Number of votes.
-    ///    - hasVideo: Has video.
-    ///    - isAdultOnly: Is the movie only suitable for adults.
-    ///
     public init(
         id: Int,
         title: String,
@@ -230,7 +145,6 @@ extension Movie {
         self.overview = try container.decodeIfPresent(String.self, forKey: .overview)
         self.runtime = try container.decodeIfPresent(Int.self, forKey: .runtime)
 
-        // Need to deal with empty strings - date decoding will fail with an empty string
         let releaseDateString = try container.decodeIfPresent(String.self, forKey: .releaseDate)
         self.releaseDate = try {
             guard let releaseDateString, !releaseDateString.isEmpty else {
@@ -245,7 +159,6 @@ extension Movie {
         self.budget = try container.decodeIfPresent(Double.self, forKey: .budget)
         self.revenue = try container.decodeIfPresent(Double.self, forKey: .revenue)
 
-        // Need to deal with empty strings - URL decoding will fail with an empty string
         let homepageURLString = try container.decodeIfPresent(String.self, forKey: .homepageURL)
         self.homepageURL = try {
             guard let homepageURLString, !homepageURLString.isEmpty else {

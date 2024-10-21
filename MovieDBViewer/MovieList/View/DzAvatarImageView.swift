@@ -10,7 +10,7 @@ import UIKit
 
 class DzAvatarImageView: UIImageView {
 	
-	let cache = NetworkManager.shared.cache
+	let cache = NetworkManager.shared.imageCache
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)

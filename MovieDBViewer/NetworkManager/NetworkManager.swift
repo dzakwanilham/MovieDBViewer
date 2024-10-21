@@ -16,9 +16,9 @@ enum DzError: String, Error {
 }
 
 enum DzImageError: String, Error {
-	case invalidUsername = "This Username created an invalid request. Please try again."
-	case unableToComplete = "Unable to complete your request. Please check your internet connection"
-	case invalidResponse = "Invalid response from the server. Please try again"
+	case invalidRequest = "This process created an invalid request. Please try again."
+	case failedToGetFilePath = "Unable to find image. Please try again"
+	case failedToGetImage = "Unable to find image, Please try again"
 	case invalidData = "The data received from the server was invalid. Please try again."
 	case jsonError = "The data received from the server was corrupt. Please try again."
 }
@@ -35,7 +35,8 @@ class NetworkManager {
 	
 	static let shared = NetworkManager()
 	private let baseURL = "https://api.themoviedb.org/3/"
-	let cache = NSCache<NSString, UIImage>()
+	let imageCache = NSCache<NSString, UIImage>()
+	var movieIDCache = [String :String]()
 	
 	var movieData: MovieData?
 	
@@ -82,6 +83,7 @@ class NetworkManager {
 				onComplete(.success(movieData.results))
 						   
 			} catch {
+				
 				onComplete(.failure(.invalidData))
 			}
 		}
@@ -92,30 +94,50 @@ class NetworkManager {
 		
 		let endPoint = baseURL + "movie/\(movieID)/images"
 		
+		if let imageCache = movieIDCache[movieID] {
+			
+			print("[dzakwan] cache found for \(movieID)")
+			
+			self.downloadImage(from: imageCache, onComplete: onComplete)
+			
+			return
+		}
+		
 		guard let url = URL(string: endPoint) else {
-			onComplete(.failure(.unableToComplete))
+			onComplete(.failure(.invalidRequest))
 			return
 		}
 				
 		let task = URLSession.shared.dataTask(with: self.prepareURL(url: url)) { [weak self] data, response, error in
-			guard let self = self else {	return	}
-			if error != nil {	return	}
-			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {	return	}
-			guard let data = data else {	return	}
+			
+			guard let self = self else {
+				onComplete(.failure(.failedToGetFilePath))
+				return
+			}
+			
+			if error != nil {
+				onComplete(.failure(.failedToGetFilePath))
+				return
+			}
+			
+			guard let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data else {
+				onComplete(.failure(.invalidData))
+				return
+			}
 						
 			do {
 				if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
 				   let posters = json["posters"] as? [[String: Any]] {
 					
 					if let imagePath = posters.first(where: { $0["iso_639_1"] as? String == "en" })?["file_path"] as? String {
-						self.downloadImage(from: imagePath, onComplete: onComplete)
-					} else {
 						
+						self.movieIDCache.updateValue(imagePath, forKey: movieID)
+						self.downloadImage(from: imagePath, onComplete: onComplete)
 					}
 				
 				}
 			} catch {
-				
+				onComplete(.failure(.jsonError))
 			}
 		}
 		
@@ -135,36 +157,51 @@ class NetworkManager {
 		return request
 	}
 	
-	func downloadImage(from imagePath: String, onComplete: @escaping (Result<UIImage,DzImageError>) -> Void) {
+	private func downloadImage(from imagePath: String, onComplete: @escaping (Result<UIImage,DzImageError>) -> Void) {
 				
 		let baseUrl = "https://image.tmdb.org/t/p/original\(imagePath)"
 		
 		let cacheKey = NSString(string: baseUrl)
 		
-		if let image = cache.object(forKey: cacheKey) {
+		if let image = imageCache.object(forKey: cacheKey) {
 			onComplete(.success(image))
 			return
 		}
 				
 		guard let url = URL(string: baseUrl) else {
+			onComplete(.failure(.invalidRequest))
 			return
 		}
 		
 		let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-			guard let self = self else {	return	}
-			if error != nil {	return	}
-			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {	return	}
-			guard let data = data else {	return	}
 			
-			guard let image = UIImage(data: data)else {	return	}
-			self.cache.setObject(image, forKey: cacheKey)
+			guard let self = self else {
+				onComplete(.failure(.failedToGetImage))
+				return
+			}
+			
+			if error != nil {
+				onComplete(.failure(.failedToGetImage))
+				return
+			}
+			
+			guard let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data else {
+				onComplete(.failure(.invalidData))
+				return
+			}
+			
+			guard let image = UIImage(data: data)else {
+				onComplete(.failure(.invalidData))
+				return
+			}
+			
+			self.imageCache.setObject(image, forKey: cacheKey)
 			
 			DispatchQueue.main.async { [weak self] in
 				onComplete(.success(image))
 			}
 			
 		}
-		
 		
 		task.resume()
 	}
