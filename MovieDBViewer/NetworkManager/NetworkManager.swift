@@ -45,18 +45,18 @@ class NetworkManager {
 	func getMovie(for language: MovieLanguage, page: Int, onComplete: @escaping (Result<[Movie],DzError>) -> Void) {
 		
 		let endPoint = baseURL + "movie/now_playing?language=\(language.rawValue)&page=\(page)"
-
+		
 		guard let url = URL(string: endPoint) else {
 			onComplete(.failure(.unableToComplete))
 			return
 		}
 		
 		let task = URLSession.shared.dataTask(with: self.prepareURL(url: url)) { data, response, error in
-						
+			
 			if let _ = error {
 				onComplete(.failure(.unableToComplete))
 			}
-						
+			
 			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
 				onComplete(.failure(.invalidResponse))
 				return
@@ -70,7 +70,7 @@ class NetworkManager {
 			do {
 				let decoder = JSONDecoder()
 				decoder.keyDecodingStrategy = .convertFromSnakeCase
-								
+				
 				let decodedMovieData = try? JSONDecoder().decode(MovieData.self, from: data)
 				
 				self.movieData = decodedMovieData
@@ -79,9 +79,9 @@ class NetworkManager {
 					onComplete(.failure(.invalidData))
 					return
 				}
-								
+				
 				onComplete(.success(movieData.results))
-						   
+				
 			} catch {
 				
 				onComplete(.failure(.invalidData))
@@ -96,8 +96,6 @@ class NetworkManager {
 		
 		if let imageCache = movieIDCache[movieID] {
 			
-			print("[dzakwan] cache found for \(movieID)")
-			
 			self.downloadImage(from: imageCache, onComplete: onComplete)
 			
 			return
@@ -107,7 +105,7 @@ class NetworkManager {
 			onComplete(.failure(.invalidRequest))
 			return
 		}
-				
+		
 		let task = URLSession.shared.dataTask(with: self.prepareURL(url: url)) { [weak self] data, response, error in
 			
 			guard let self = self else {
@@ -124,7 +122,7 @@ class NetworkManager {
 				onComplete(.failure(.invalidData))
 				return
 			}
-						
+			
 			do {
 				if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
 				   let posters = json["posters"] as? [[String: Any]] {
@@ -132,9 +130,11 @@ class NetworkManager {
 					if let imagePath = posters.first(where: { $0["iso_639_1"] as? String == "en" })?["file_path"] as? String {
 						
 						self.movieIDCache.updateValue(imagePath, forKey: movieID)
+
+						
 						self.downloadImage(from: imagePath, onComplete: onComplete)
 					}
-				
+					
 				}
 			} catch {
 				onComplete(.failure(.jsonError))
@@ -142,7 +142,7 @@ class NetworkManager {
 		}
 		
 		task.resume()
-
+		
 	}
 	
 	private func prepareURL(url: URL) -> URLRequest {
@@ -150,15 +150,15 @@ class NetworkManager {
 		var request = URLRequest(url: url)
 		request.httpMethod = "GET"
 		request.allHTTPHeaderFields = [
-		  "accept": "application/json",
-		  "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjkwMTAxMjk5YTc1NTAyZTFlMWE1MDc5N2VkOWViYyIsIm5iZiI6MTcyOTQ4Nzg3MS45Mzk2NTYsInN1YiI6IjY0YjA1ZDIzZTI0YjkzNWIzMWNhN2JlNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.igWiQei6-Py1w1hfnbXtu2YQIGxoFNVIO8sgDL0A8w4"
+			"accept": "application/json",
+			"Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjkwMTAxMjk5YTc1NTAyZTFlMWE1MDc5N2VkOWViYyIsIm5iZiI6MTcyOTQ4Nzg3MS45Mzk2NTYsInN1YiI6IjY0YjA1ZDIzZTI0YjkzNWIzMWNhN2JlNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.igWiQei6-Py1w1hfnbXtu2YQIGxoFNVIO8sgDL0A8w4"
 		]
 		
 		return request
 	}
 	
 	private func downloadImage(from imagePath: String, onComplete: @escaping (Result<UIImage,DzImageError>) -> Void) {
-				
+		
 		let baseUrl = "https://image.tmdb.org/t/p/original\(imagePath)"
 		
 		let cacheKey = NSString(string: baseUrl)
@@ -167,7 +167,7 @@ class NetworkManager {
 			onComplete(.success(image))
 			return
 		}
-				
+		
 		guard let url = URL(string: baseUrl) else {
 			onComplete(.failure(.invalidRequest))
 			return
@@ -196,6 +196,8 @@ class NetworkManager {
 			}
 			
 			self.imageCache.setObject(image, forKey: cacheKey)
+			
+			print("[dzakwan] setimageFromCache \(cacheKey)")
 			
 			DispatchQueue.main.async { [weak self] in
 				onComplete(.success(image))

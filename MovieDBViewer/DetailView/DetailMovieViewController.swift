@@ -39,6 +39,7 @@ class DetailMovieViewController: UIViewController {
 		view.backgroundColor = .white
 		setupViews()
 		displayMovieDetails()
+
 	}
 	
 	private func setupViews() {
