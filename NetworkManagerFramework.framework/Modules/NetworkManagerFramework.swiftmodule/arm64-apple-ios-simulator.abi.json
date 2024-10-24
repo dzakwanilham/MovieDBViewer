@@ -1,0 +1,520 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "NetworkManagerFramework",
+    "printedName": "NetworkManagerFramework",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NetworkManagerFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "NetworkManagerFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InternalErrorCode",
+        "printedName": "InternalErrorCode",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "unableToComplete",
+            "printedName": "unableToComplete",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NetworkManagerFramework.InternalErrorCode.Type) -> NetworkManagerFramework.InternalErrorCode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InternalErrorCode",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode",
+                    "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InternalErrorCode",
+                        "printedName": "NetworkManagerFramework.InternalErrorCode",
+                        "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:23NetworkManagerFramework17InternalErrorCodeO16unableToCompleteyA2CmF",
+            "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO16unableToCompleteyA2CmF",
+            "moduleName": "NetworkManagerFramework"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidResponse",
+            "printedName": "invalidResponse",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NetworkManagerFramework.InternalErrorCode.Type) -> NetworkManagerFramework.InternalErrorCode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InternalErrorCode",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode",
+                    "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InternalErrorCode",
+                        "printedName": "NetworkManagerFramework.InternalErrorCode",
+                        "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:23NetworkManagerFramework17InternalErrorCodeO15invalidResponseyA2CmF",
+            "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO15invalidResponseyA2CmF",
+            "moduleName": "NetworkManagerFramework"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidData",
+            "printedName": "invalidData",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NetworkManagerFramework.InternalErrorCode.Type) -> NetworkManagerFramework.InternalErrorCode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InternalErrorCode",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode",
+                    "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InternalErrorCode",
+                        "printedName": "NetworkManagerFramework.InternalErrorCode",
+                        "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:23NetworkManagerFramework17InternalErrorCodeO11invalidDatayA2CmF",
+            "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO11invalidDatayA2CmF",
+            "moduleName": "NetworkManagerFramework"
+          },
+          {
+            "kind": "Var",
+            "name": "jsonError",
+            "printedName": "jsonError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(NetworkManagerFramework.InternalErrorCode.Type) -> NetworkManagerFramework.InternalErrorCode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InternalErrorCode",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode",
+                    "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InternalErrorCode",
+                        "printedName": "NetworkManagerFramework.InternalErrorCode",
+                        "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:23NetworkManagerFramework17InternalErrorCodeO04jsonE0yA2CmF",
+            "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO04jsonE0yA2CmF",
+            "moduleName": "NetworkManagerFramework"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NetworkManagerFramework.InternalErrorCode?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InternalErrorCode",
+                    "printedName": "NetworkManagerFramework.InternalErrorCode",
+                    "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:23NetworkManagerFramework17InternalErrorCodeO8rawValueACSgSS_tcfc",
+            "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO8rawValueACSgSS_tcfc",
+            "moduleName": "NetworkManagerFramework",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23NetworkManagerFramework17InternalErrorCodeO8rawValueSSvp",
+            "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO8rawValueSSvp",
+            "moduleName": "NetworkManagerFramework",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23NetworkManagerFramework17InternalErrorCodeO8rawValueSSvg",
+                "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO8rawValueSSvg",
+                "moduleName": "NetworkManagerFramework",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:23NetworkManagerFramework17InternalErrorCodeO",
+        "mangledName": "$s23NetworkManagerFramework17InternalErrorCodeO",
+        "moduleName": "NetworkManagerFramework",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NetworkManager",
+        "printedName": "NetworkManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NetworkManager",
+                "printedName": "NetworkManagerFramework.NetworkManager",
+                "usr": "s:23NetworkManagerFramework0aB0C"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23NetworkManagerFramework0aB0C6sharedACvpZ",
+            "mangledName": "$s23NetworkManagerFramework0aB0C6sharedACvpZ",
+            "moduleName": "NetworkManagerFramework",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NetworkManager",
+                    "printedName": "NetworkManagerFramework.NetworkManager",
+                    "usr": "s:23NetworkManagerFramework0aB0C"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23NetworkManagerFramework0aB0C6sharedACvgZ",
+                "mangledName": "$s23NetworkManagerFramework0aB0C6sharedACvgZ",
+                "moduleName": "NetworkManagerFramework",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "request",
+            "printedName": "request(url:responseType:dispatchQueue:onComplete:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLRequest",
+                "printedName": "Foundation.URLRequest",
+                "usr": "s:10Foundation10URLRequestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DispatchQueue",
+                "printedName": "Dispatch.DispatchQueue",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)OS_dispatch_queue"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<τ_0_0, NetworkManagerFramework.InternalErrorCode>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<τ_0_0, NetworkManagerFramework.InternalErrorCode>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InternalErrorCode",
+                        "printedName": "NetworkManagerFramework.InternalErrorCode",
+                        "usr": "s:23NetworkManagerFramework17InternalErrorCodeO"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:23NetworkManagerFramework0aB0C7request3url12responseType13dispatchQueue10onCompletey10Foundation10URLRequestV_xmSo03OS_H6_queueCys6ResultOyxAA17InternalErrorCodeOGctSeRzlF",
+            "mangledName": "$s23NetworkManagerFramework0aB0C7request3url12responseType13dispatchQueue10onCompletey10Foundation10URLRequestV_xmSo03OS_H6_queueCys6ResultOyxAA17InternalErrorCodeOGctSeRzlF",
+            "moduleName": "NetworkManagerFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
+            "sugared_genericSig": "<T where T : Swift.Decodable>",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:23NetworkManagerFramework0aB0C",
+        "mangledName": "$s23NetworkManagerFramework0aB0C",
+        "moduleName": "NetworkManagerFramework",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/admin\/Desktop\/user interview\/moviedb\/NetworkManagerFramework\/Source\/NetworkManager.swift",
+      "kind": "StringLiteral",
+      "offset": 201,
+      "length": 72,
+      "value": "\"Unable to complete your request. Please check your internet connection\""
+    },
+    {
+      "filePath": "\/Users\/admin\/Desktop\/user interview\/moviedb\/NetworkManagerFramework\/Source\/NetworkManager.swift",
+      "kind": "StringLiteral",
+      "offset": 298,
+      "length": 52,
+      "value": "\"Invalid response from the server. Please try again\""
+    },
+    {
+      "filePath": "\/Users\/admin\/Desktop\/user interview\/moviedb\/NetworkManagerFramework\/Source\/NetworkManager.swift",
+      "kind": "StringLiteral",
+      "offset": 371,
+      "length": 66,
+      "value": "\"The data received from the server was invalid. Please try again.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/Desktop\/user interview\/moviedb\/NetworkManagerFramework\/Source\/NetworkManager.swift",
+      "kind": "StringLiteral",
+      "offset": 456,
+      "length": 66,
+      "value": "\"The data received from the server was corrupt. Please try again.\""
+    }
+  ]
+}

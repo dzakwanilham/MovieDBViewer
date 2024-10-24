@@ -70,18 +70,17 @@ class DetailMovieViewController: UIViewController {
 	private func displayMovieDetails() {
 		
 		guard let movie = movie else { return }
-				
-		NetworkManager.shared.fetchImageURL(movieID: "\(movie.id)") { result in
+		
+		MovieDBNetworkManager.shared.fetchImageURL(movieID:"\(movie.id)", onComplete: { result in
 
 			switch result {
-				case .success(let image):
-					DispatchQueue.main.async {
-						self.posterImageView.image = image
-					}
-				case .failure:
+				case.success(let image):
+					self.posterImageView.image = image
+
+				case.failure(let error):
 					self.posterImageView.image = .init(named: "placeholder")
 			}
-		}
+		})
 		
 		titleLabel.text = movie.title
 		overviewLabel.text = movie.overview

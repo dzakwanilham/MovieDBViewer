@@ -30,7 +30,7 @@ class DzCollectionCellView: UICollectionViewCell {
 	func set(movie: Movie){
 		movieTitle.text = movie.title
 		movieImage.fetchImage(from: "\(movie.id)")
-				
+		
 	}
 	
 	private func configureImageView() {

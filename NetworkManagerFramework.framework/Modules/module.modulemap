@@ -1,0 +1,6 @@
+framework module NetworkManagerFramework {
+  umbrella header "NetworkManagerFramework.h"
+  export *
+
+  module * { export * }
+}

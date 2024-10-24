@@ -10,12 +10,15 @@ import UIKit
 
 class DzAvatarImageView: UIImageView {
 	
-	let cache = NetworkManager.shared.imageCache
-
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		configureImageView()
+		self.configureImageView()
+	}
+	
+	override init(image: UIImage?) {
+		super.init(image: image)
+		self.configureImageView()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -30,8 +33,8 @@ class DzAvatarImageView: UIImageView {
 	}
 	
 	func fetchImage(from movieID: String) {
-		
-		NetworkManager.shared.fetchImageURL(movieID: movieID, onComplete: { result in
+				
+		MovieDBNetworkManager.shared.fetchImageURL(movieID: movieID, onComplete: { result in
 
 			switch result {
 				case.success(let image):

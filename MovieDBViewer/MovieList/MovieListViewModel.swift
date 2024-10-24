@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MovieListViewModel {
 	
@@ -20,17 +21,20 @@ class MovieListViewModel {
 	var perPage: Int = 20
 	var counterA: Int = 0
 	
+	let imageCache = NSCache<NSString, UIImage>()
+	var movieIDCache = [String :String]()
+	
 	init() {
 	}
 	
 	func fetchMovies() {
-		NetworkManager.shared.getMovie(for: .english, page: page) { result in
-			
+		
+		MovieDBNetworkManager.shared.fetchMovies(page: page) { result in
 			switch result {
-				case.success(let responseMovies):
+				case .success(let movie):
 					
-					self.movies?.append(contentsOf: responseMovies)
-
+					self.movies?.append(contentsOf: movie)
+					
 					if (self.movies == nil) {
 						DispatchQueue.main.async {
 							self.presentEmptyState?("empty state")
@@ -39,12 +43,10 @@ class MovieListViewModel {
 					}
 					
 					self.onNeedToUpdateData?()
-					
-				case.failure(let error):
-					
+				case .failure(let error):
 					self.presentErrorAlert?(error.rawValue)
 			}
 		}
-		
 	}
+	
 }

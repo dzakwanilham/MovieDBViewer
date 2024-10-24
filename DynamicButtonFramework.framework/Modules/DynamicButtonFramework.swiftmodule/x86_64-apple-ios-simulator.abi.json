@@ -1,0 +1,632 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "DynamicButtonFramework",
+    "printedName": "DynamicButtonFramework",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicButtonFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "DynamicButtonFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ButtonStyle",
+        "printedName": "ButtonStyle",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "white",
+            "printedName": "white",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicButtonFramework.ButtonStyle.Type) -> DynamicButtonFramework.ButtonStyle",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonStyle",
+                    "printedName": "DynamicButtonFramework.ButtonStyle",
+                    "usr": "s:22DynamicButtonFramework0B5StyleO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicButtonFramework.ButtonStyle.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ButtonStyle",
+                        "printedName": "DynamicButtonFramework.ButtonStyle",
+                        "usr": "s:22DynamicButtonFramework0B5StyleO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22DynamicButtonFramework0B5StyleO5whiteyA2CmF",
+            "mangledName": "$s22DynamicButtonFramework0B5StyleO5whiteyA2CmF",
+            "moduleName": "DynamicButtonFramework"
+          },
+          {
+            "kind": "Var",
+            "name": "blue",
+            "printedName": "blue",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicButtonFramework.ButtonStyle.Type) -> DynamicButtonFramework.ButtonStyle",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonStyle",
+                    "printedName": "DynamicButtonFramework.ButtonStyle",
+                    "usr": "s:22DynamicButtonFramework0B5StyleO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicButtonFramework.ButtonStyle.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ButtonStyle",
+                        "printedName": "DynamicButtonFramework.ButtonStyle",
+                        "usr": "s:22DynamicButtonFramework0B5StyleO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22DynamicButtonFramework0B5StyleO4blueyA2CmF",
+            "mangledName": "$s22DynamicButtonFramework0B5StyleO4blueyA2CmF",
+            "moduleName": "DynamicButtonFramework"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ButtonStyle",
+                "printedName": "DynamicButtonFramework.ButtonStyle",
+                "usr": "s:22DynamicButtonFramework0B5StyleO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ButtonStyle",
+                "printedName": "DynamicButtonFramework.ButtonStyle",
+                "usr": "s:22DynamicButtonFramework0B5StyleO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22DynamicButtonFramework0B5StyleO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s22DynamicButtonFramework0B5StyleO2eeoiySbAC_ACtFZ",
+            "moduleName": "DynamicButtonFramework",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22DynamicButtonFramework0B5StyleO9hashValueSivp",
+            "mangledName": "$s22DynamicButtonFramework0B5StyleO9hashValueSivp",
+            "moduleName": "DynamicButtonFramework",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22DynamicButtonFramework0B5StyleO9hashValueSivg",
+                "mangledName": "$s22DynamicButtonFramework0B5StyleO9hashValueSivg",
+                "moduleName": "DynamicButtonFramework",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22DynamicButtonFramework0B5StyleO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s22DynamicButtonFramework0B5StyleO4hash4intoys6HasherVz_tF",
+            "moduleName": "DynamicButtonFramework",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:22DynamicButtonFramework0B5StyleO",
+        "mangledName": "$s22DynamicButtonFramework0B5StyleO",
+        "moduleName": "DynamicButtonFramework",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CustomButton",
+        "printedName": "CustomButton",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "didTap",
+            "printedName": "didTap",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(() -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "() -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22DynamicButtonFramework06CustomB0C6didTapyycSgvp",
+            "mangledName": "$s22DynamicButtonFramework06CustomB0C6didTapyycSgvp",
+            "moduleName": "DynamicButtonFramework",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(() -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "() -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22DynamicButtonFramework06CustomB0C6didTapyycSgvg",
+                "mangledName": "$s22DynamicButtonFramework06CustomB0C6didTapyycSgvg",
+                "moduleName": "DynamicButtonFramework",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(() -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "() -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22DynamicButtonFramework06CustomB0C6didTapyycSgvs",
+                "mangledName": "$s22DynamicButtonFramework06CustomB0C6didTapyycSgvs",
+                "moduleName": "DynamicButtonFramework",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22DynamicButtonFramework06CustomB0C6didTapyycSgvM",
+                "mangledName": "$s22DynamicButtonFramework06CustomB0C6didTapyycSgvM",
+                "moduleName": "DynamicButtonFramework",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "greet",
+            "printedName": "greet()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22DynamicButtonFramework06CustomB0C5greetSSyF",
+            "mangledName": "$s22DynamicButtonFramework06CustomB0C5greetSSyF",
+            "moduleName": "DynamicButtonFramework",
+            "isOpen": true,
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(frame:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CustomButton",
+                "printedName": "DynamicButtonFramework.CustomButton",
+                "usr": "c:@M@DynamicButtonFramework@objc(cs)CustomButton"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@DynamicButtonFramework@objc(cs)CustomButton(im)initWithFrame:",
+            "mangledName": "$s22DynamicButtonFramework06CustomB0C5frameACSo6CGRectV_tcfc",
+            "moduleName": "DynamicButtonFramework",
+            "overriding": true,
+            "objc_name": "initWithFrame:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(style:title:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CustomButton",
+                "printedName": "DynamicButtonFramework.CustomButton",
+                "usr": "c:@M@DynamicButtonFramework@objc(cs)CustomButton"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ButtonStyle",
+                "printedName": "DynamicButtonFramework.ButtonStyle",
+                "usr": "s:22DynamicButtonFramework0B5StyleO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:22DynamicButtonFramework06CustomB0C5style5titleAcA0B5StyleO_SStcfc",
+            "mangledName": "$s22DynamicButtonFramework06CustomB0C5style5titleAcA0B5StyleO_SStcfc",
+            "moduleName": "DynamicButtonFramework",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "DynamicButtonFramework.CustomButton?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CustomButton",
+                    "printedName": "DynamicButtonFramework.CustomButton",
+                    "usr": "c:@M@DynamicButtonFramework@objc(cs)CustomButton"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@DynamicButtonFramework@objc(cs)CustomButton(im)initWithCoder:",
+            "mangledName": "$s22DynamicButtonFramework06CustomB0C5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "DynamicButtonFramework",
+            "overriding": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@DynamicButtonFramework@objc(cs)CustomButton",
+        "mangledName": "$s22DynamicButtonFramework06CustomB0C",
+        "moduleName": "DynamicButtonFramework",
+        "isOpen": true,
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)UIButton",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "UIKit.UIButton",
+          "UIKit.UIControl",
+          "UIKit.UIView",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "__DefaultCustomPlaygroundQuickLookable",
+            "printedName": "__DefaultCustomPlaygroundQuickLookable",
+            "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
+            "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

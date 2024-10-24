@@ -1,0 +1,6 @@
+framework module NormalFrameworkOverlay {
+  umbrella header "NormalFrameworkOverlay.h"
+  export *
+
+  module * { export * }
+}

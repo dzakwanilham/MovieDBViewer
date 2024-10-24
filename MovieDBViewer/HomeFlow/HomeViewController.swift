@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import DynamicButtonFramework
+import NormalFrameworkOverlay
 
 class HomeViewController: UIViewController {
 	
@@ -71,9 +73,14 @@ class HomeViewController: UIViewController {
 						
 			guard let self = self else { return }
 			
-			let vc = OverlayViewController()
-						
-			vc.showPopup(on: self, title: movie.title, subTitle: movie.overview, image: getimageFromCache(movieID: "\(movie.id)"), primaryButtonTitle: "Primary Button", secondaryButtonTitle: movie.title.contains("a") ? "Secondary Button" : nil)
+//			let vc = OverlayViewController()
+//						
+//			vc.showPopup(on: self, title: movie.title, subTitle: movie.overview, image: getimageFromCache(movieID: "\(movie.id)"), primaryButtonTitle: "Primary Button", secondaryButtonTitle: movie.title.contains("a") ? "Secondary Button" : nil)
+			
+			let vc2 = DetailMovieViewController()
+			vc2.movie = movie
+			
+			self.navigationController?.pushViewController(vc2, animated: true)
 
 		}
 		
@@ -88,17 +95,18 @@ class HomeViewController: UIViewController {
 	
 	private func getimageFromCache(movieID: String) -> UIImage? {
 
-		guard let imagePath = NetworkManager.shared.movieIDCache[movieID] else {
-			return UIImage(named: "tmdb-logo")
-		}
+//		guard let imagePath = NetworkManager.shared.movieIDCache[movieID] else {
+//			return UIImage(named: "tmdb-logo")
+//		}
+//		
+//		let cacheKey = NSString(string: "https://image.tmdb.org/t/p/original\(imagePath)")
+//
+//		guard let image = NetworkManager.shared.imageCache.object(forKey: cacheKey) else {
+//			return UIImage(named: "tmdb-logo")
+//		}
 		
-		let cacheKey = NSString(string: "https://image.tmdb.org/t/p/original\(imagePath)")
+		return UIImage(named: "tmdb-logo")
 
-		guard let image = NetworkManager.shared.imageCache.object(forKey: cacheKey) else {
-			return UIImage(named: "tmdb-logo")
-		}
-		
-		return image
 		
 	}
 
