@@ -15,6 +15,20 @@ class HomeViewController: UIViewController {
 	let openMovieDBButton = CustomButton(style: .blue, title: "Show Nowplaying")
 	let showOverlayButton = CustomButton(style: .white, title: "Show overlay")
 	
+	let viewModel: MainViewModel
+	var onNavigationEvent: ((MainCoordinator.NavigationEvent)->Void)?
+	
+	init(viewModel: MainViewModel, onNavigationEvent: ((MainCoordinator.NavigationEvent)->Void)?) {
+		
+		self.viewModel = viewModel
+		self.onNavigationEvent = onNavigationEvent
+		
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,7 +50,7 @@ class HomeViewController: UIViewController {
 		openMovieDBButton.translatesAutoresizingMaskIntoConstraints = false
 		
 		openMovieDBButton.didTap = { [weak self] in
-			self?.openMovieDB()
+			self?.onNavigationEvent?(.openMovieList)
 		}
 
 		NSLayoutConstraint.activate([
@@ -61,30 +75,6 @@ class HomeViewController: UIViewController {
 			showOverlayButton.heightAnchor.constraint(equalToConstant: 60)
 		])
 				
-	}
-	
-	func openMovieDB() {
-		
-		let vm = MovieListViewModel()
-		let vc = MovieListViewController(vm)
-		let vc2 = OverlayViewController()
-		
-		vc.didSelectMovies = { [weak self] movie in
-						
-			guard let self = self else { return }
-			
-//			let vc = OverlayViewController()
-//						
-//			vc.showPopup(on: self, title: movie.title, subTitle: movie.overview, image: getimageFromCache(movieID: "\(movie.id)"), primaryButtonTitle: "Primary Button", secondaryButtonTitle: movie.title.contains("a") ? "Secondary Button" : nil)
-			
-			let vc2 = DetailMovieViewController()
-			vc2.movie = movie
-			
-			self.navigationController?.pushViewController(vc2, animated: true)
-
-		}
-		
-		self.navigationController?.pushViewController(vc, animated: true)
 	}
 	
 	@objc func showOverlay() {

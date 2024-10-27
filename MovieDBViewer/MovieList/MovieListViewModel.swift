@@ -15,8 +15,8 @@ class MovieListViewModel {
 	var presentEmptyState: ((String) -> ())?
 
 	var page: Int = 1
-	var movies: [Movie]? = []
-	var filteredmovies: [Movie]? = []
+	var movies: [Movie] = []
+	var filteredmovies: [Movie] = []
 	var hasMoreMovie: Bool = true
 	var perPage: Int = 20
 	var counterA: Int = 0
@@ -28,25 +28,29 @@ class MovieListViewModel {
 	}
 	
 	func fetchMovies() {
-		
 		MovieDBNetworkManager.shared.fetchMovies(page: page) { result in
 			switch result {
-				case .success(let movie):
+				case .success(let newMovies):
+					let uniqueMovies = newMovies.filter { newMovie in
+						!self.movies.contains(where: { $0.id == newMovie.id })
+					}
 					
-					self.movies?.append(contentsOf: movie)
+					self.movies.append(contentsOf: uniqueMovies)
 					
-					if (self.movies == nil) {
+					if self.movies.isEmpty {
 						DispatchQueue.main.async {
-							self.presentEmptyState?("empty state")
+							self.presentEmptyState?("No movies found")
 						}
 						return
 					}
 					
 					self.onNeedToUpdateData?()
+				
 				case .failure(let error):
 					self.presentErrorAlert?(error.rawValue)
 			}
 		}
 	}
+
 	
 }

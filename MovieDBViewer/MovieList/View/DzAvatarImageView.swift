@@ -26,7 +26,7 @@ class DzAvatarImageView: UIImageView {
 	}
 	
 	private func configureImageView() {
-		layer.cornerRadius = 10
+		layer.cornerRadius = 20
 		clipsToBounds = true
 		image = Images.placeholder
 		translatesAutoresizingMaskIntoConstraints = false

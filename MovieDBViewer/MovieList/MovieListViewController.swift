@@ -130,16 +130,7 @@ extension MovieListViewController: UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
-		var movie: [Movie]
-		
-		if isSearching {
-			guard let filteredmovie = viewModel.filteredmovies else { return }
-			movie = filteredmovie
-
-		} else {
-			guard let movies = viewModel.movies else { return }
-			movie = movies
-		}
+		var movie: [Movie] = isSearching ? viewModel.filteredmovies : viewModel.movies
 		
 		let selectedMovies = movie[indexPath.item]
 		
@@ -154,14 +145,14 @@ extension MovieListViewController: UISearchResultsUpdating, UISearchBarDelegate 
 	func updateSearchResults(for searchController: UISearchController) {
 		guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
 		isSearching = true
-		viewModel.filteredmovies = viewModel.movies?.filter{ $0.title.lowercased().contains(filter.lowercased()) }
-		updateData(on: viewModel.filteredmovies ?? [])
+		viewModel.filteredmovies = viewModel.movies.filter{ $0.title.lowercased().contains(filter.lowercased()) }
+		updateData(on: viewModel.filteredmovies)
 		
 	}
 	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 		isSearching = false
-		updateData(on: viewModel.movies ?? [])
+		updateData(on: viewModel.movies)
 	}
 	
 }

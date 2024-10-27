@@ -10,7 +10,7 @@ import UIKit
 
 class DetailMovieViewController: UIViewController {
 	
-	var movie: Movie?
+	var viewModel: DetailViewModel?
 
 	private let posterImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -38,8 +38,22 @@ class DetailMovieViewController: UIViewController {
 		super.viewDidLoad()
 		view.backgroundColor = .white
 		setupViews()
-		displayMovieDetails()
+		
+		bindViewModel()
 
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		self.displayMovieDetails()
+	}
+	
+	init(viewModel: DetailViewModel? = DetailViewModel()) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 	
 	private func setupViews() {
@@ -69,20 +83,18 @@ class DetailMovieViewController: UIViewController {
 	
 	private func displayMovieDetails() {
 		
-		guard let movie = movie else { return }
-		
-		MovieDBNetworkManager.shared.fetchImageURL(movieID:"\(movie.id)", onComplete: { result in
-
-			switch result {
-				case.success(let image):
-					self.posterImageView.image = image
-
-				case.failure(let error):
-					self.posterImageView.image = .init(named: "placeholder")
-			}
-		})
+		guard let viewModel = viewModel, let movie = viewModel.movie else { return }
 		
 		titleLabel.text = movie.title
 		overviewLabel.text = movie.overview
+		posterImageView.image = viewModel.posterImage
+	}
+	
+	func bindViewModel() {
+		
+		viewModel?.onNeedToUpdateData = { [weak self] in
+			self?.view.setNeedsLayout()
+		}
+		
 	}
 }
